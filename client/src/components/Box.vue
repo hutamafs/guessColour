@@ -22,7 +22,7 @@ export default {
 
 <style>
 .container {
-    width: 50%;
+    width: 30%;
 }
 .square {
 	border-radius: 20%;
