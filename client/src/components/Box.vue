@@ -13,7 +13,7 @@ export default {
   props: ['color'],
   methods:{
       choose(idBox) {
-          this.$store.commit('chosen',idBox)
+          this.$store.dispatch('chosen',idBox)
       }
   }
 }

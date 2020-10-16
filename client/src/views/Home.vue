@@ -5,8 +5,10 @@
       <div class="bg-dark">
         <div class="text-center text-white">
           <H1>LETS PLAY</H1>
-          <h3>RGB (xxx,xxx,xxx)</h3>
+          <h3>RGB ({{clue.red}},{{clue.green}},{{clue.blue}})</h3>
           <p>CHOOSE THE RIGHT ONE</p>
+          <p> {{life}} </p>
+          <p> {{skor}} </p>
         </div>
       </div>
     </div>
@@ -27,6 +29,7 @@
 <script>
 // @ is an alias to /src
 import Box from '../components/Box'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
@@ -35,31 +38,17 @@ export default {
   },
   data () {
     return {
-      colours: [],
-      kunci: null,
-      clue: {}
+
     }
   },
   methods: {
-    generateColour () {
-      let num = 0
-      let id = 1
-      while (num < 6) {
-        let red = Math.floor(Math.random() * 255) + 1
-        let green = Math.floor(Math.random() * 255) + 1
-        let blue = Math.floor(Math.random() * 255) + 1
-        let colour = { id, red, green, blue }
-        this.colours.push(colour)
-        num++
-        id++
-      }
-      this.kunci = Math.floor(Math.random() * this.colours.length)
-      this.clue = this.colours[this.kunci]
-    }
+
   },
   created () {
-    this.generateColour()
-    this.$store.commit('key',this.kunci)
+    this.$store.commit('GENERATE_COLOUR')
+  },
+  computed:{
+    ...mapState(['colours','kunci','clue','skor','life'])
   }
 }
 </script>
