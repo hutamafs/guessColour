@@ -32,12 +32,6 @@
               </button>
             </form>
           </div>
-          <!-- <div class="col-8 font-lobster d-flex align-items-center justify-content-center">
-            <h2 class="text-white text-center">
-              GUESS COLOR
-              <span><p>how good you as designer ?</p></span>
-            </h2><br>
-          </div> -->
         </div>
       </div>
       <img src="../assets/undraw_color_palette_yamk.svg" style="width: 40%" alt="">
@@ -68,7 +62,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 section {
   width: 100%;
@@ -77,7 +71,7 @@ section {
   width: 80%;
 }
 #loginregister-container {
-  width: 80%;
-  
+  width: 80%;  
 }
+
 </style>
