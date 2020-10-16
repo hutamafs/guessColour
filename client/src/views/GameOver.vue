@@ -21,6 +21,8 @@ export default {
             this.$store.commit('RESET')
             localStorage.clear()
             this.$router.push({name:'Login'})
+            //this.$socket.emit('deleteUser',localStorage.playerone)
+            this.$socket.emit('resetGame')
             //this.$router.push({name:'Home'})
         }
     },

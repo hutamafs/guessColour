@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <div class="container-flex p-3">
-      <div class="item-flex" style="cursor: pointer;">Logo</div>
+    <div class="container-flex p-3 justify-content-center">
       <div class="item-flex" style="cursor: pointer; letter-spacing: 2px"><b>GUESS COLOR</b></div>
-      <div class="item-flex" style="cursor: pointer;">Logout</div>
     </div>
     <router-view/>
   </div>

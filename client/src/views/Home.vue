@@ -17,8 +17,7 @@
         <h4> {{eName}} </h4>
       </div>
     </div>
-    </div>
-    <div 
+        <div 
     v-if="eName">
     <Box
     v-for="color in colours"
@@ -30,8 +29,7 @@
     <div class="container d-flex justify-content-center align-items-center" v-else>
         <h1>Waiting for other player to join</h1>
     </div>
-
-  </div>
+    </div>
 </template>
 
 <script>
@@ -73,10 +71,10 @@ export default {
     },
   },
     created () {
-      const payload = {
-        name: localStorage.playerone
-      }
-      this.$socket.emit('user-connect', payload)
+      // const payload = {
+      //   name: localStorage.playerone
+      // }
+      // this.$socket.emit('user-connect', payload)
       this.$store.commit('GENERATE_COLOUR')
   },
   computed:{
@@ -92,7 +90,6 @@ export default {
   },
   sockets:{
     enemyLife(data) {
-      console.log(data,'angka life')
       this.eLife = data
       if(data == 0) {
         //alert('you win')
@@ -106,7 +103,6 @@ export default {
       data.forEach(user => {
         if(user.name != localStorage.playerone) {
           this.eName = user.name
-          console.log(this.eName,'enemy name')
         }
       })     
     },

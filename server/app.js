@@ -50,7 +50,20 @@ io.on('connection' , (socket) => {
         socket.broadcast.emit('enemyStatus',payload)
     })
 
-    //socket.on('disconnect')
+    socket.on('deleteUser',(data) => {
+        var i = users.indexOf(data);
+        users.splice(i, 1);
+    })
+
+    socket.on('disconnect', function() {
+        var i = users.indexOf(socket);
+        users.splice(i, 1);
+        console.log(users, 'Got disconnect!');
+    });
+    
+    socket.on('resetGame',() => {
+        users = [];
+    })
 })
 
 

@@ -36,15 +36,14 @@ export default new Vuex.Store({
     },
     DECREASE_LIFE(state) {
       state.life--
-      //state.status.life = state.life
     },
     CHANGE_SCORE(state,payload) {
       state.skor += payload
-      //state.status.skor = state.skor
     },
     RESET(state) {
       state.life = 5;
-      state.skor = 0
+      state.skor = 0;
+      
     },
 
   },

@@ -18,7 +18,8 @@ export default {
     methods:{
         play() {
             this.$store.commit('RESET')
-            this.$router.push({name:'Home'})
+            localStorage.clear()
+            this.$router.push({name:'Login'})
         }
     }
 }
