@@ -1,5 +1,16 @@
 <template>
   <div class="home">
+    <!-- start pertanyaan -->
+    <div class="container-fluid p-0">
+      <div class="bg-dark">
+        <div class="text-center text-white">
+          <H1>LETS PLAY</H1>
+          <h3>RGB (xxx,xxx,xxx)</h3>
+          <p>CHOOSE THE RIGHT ONE</p>
+        </div>
+      </div>
+    </div>
+    <!-- pertanyaan end -->
     <Box
     v-for="color in colours"
     :key="color.id"
@@ -48,3 +59,6 @@ export default {
   }
 }
 </script>
+<style lang="stylus" scoped>
+
+</style>

@@ -1,8 +1,10 @@
 <template>
+    <!-- <section> -->
     <div class="container">
         <div class="square" @click="choose(color.id)" :style="`background-color:rgb(${color.red},${color.green},${color.blue});`">
         </div>
     </div>
+    <!-- </section> -->
 </template>
 
 <script>
@@ -32,6 +34,6 @@ export default {
 }
 
 .square:hover {
-  box-shadow: 0 0 3px 2px rgb(255, 255, 255);
+  box-shadow: 0 0 2px 2px rgb(0, 219, 248);
 }
 </style>
