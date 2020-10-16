@@ -26,15 +26,14 @@
         </div>
       </div> -->
     </div>
-              <h3> {{eScore}} </h3>
-          <h3> {{eLife}} </h3>
+
     <!-- pertanyaan end -->
     <div class="container">
-      <h1 class="text-center">TIMES: 20</h1>
-
-      <!-- <p class="pl-1">LIVES: 3</p> -->
-      <h2> {{time}} </h2>
-      <button class="btn btn-dark p-1 m-2" @click="startGame">Start game</button>
+      <h1 class="text-center">TIMES: {{time}}</h1>
+      <!-- <h2> {{time}} </h2> -->
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn btn-dark p-1 m-2" @click="startGame">Start game</button>
+      </div>
     </div>
     <Box
     v-for="color in colours"
