@@ -14,33 +14,23 @@
       <div class="item-flex mt-5" style="cursor: pointer;">
         <h3>Enemy Life: {{eLife}} </h3>
         <h3>Enemy Skor: {{eScore}} </h3>
-      </div>
-      <!-- <div class="flex bg-dark">
-        <div class="text-center text-white">
-          <H1>LETS PLAY</H1>
-          <h3>RGB ({{clue.red}},{{clue.green}},{{clue.blue}})</h3>
-          <p>CHOOSE THE RIGHT ONE</p>
-          <p> {{life}} </p>
-          <p> {{skor}} </p>
-
-        </div>
-      </div> -->
-    </div>
-
-    <!-- pertanyaan end -->
-    <div class="container">
-      <h1 class="text-center">TIMES: {{time}}</h1>
-      <!-- <h2> {{time}} </h2> -->
-      <div class="d-flex align-items-center justify-content-center">
-        <button class="btn btn-dark p-1 m-2" @click="startGame">Start game</button>
+        <h4> {{eName}} </h4>
       </div>
     </div>
+    </div>
+    <div 
+    v-if="eName">
     <Box
     v-for="color in colours"
     :key="color.id"
     :color="color"
     >
     </Box>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center" v-else>
+        <h1>Waiting for other player to join</h1>
+    </div>
+
   </div>
 </template>
 
@@ -57,8 +47,8 @@ export default {
   data () {
     return {
       time:null,
-      eScore:null,
-      eLife:null,
+      eScore:0,
+      eLife:5,
       eName:null
     }
   },
@@ -83,6 +73,10 @@ export default {
     },
   },
     created () {
+      const payload = {
+        name: localStorage.playerone
+      }
+      this.$socket.emit('user-connect', payload)
       this.$store.commit('GENERATE_COLOUR')
   },
   computed:{
@@ -109,11 +103,15 @@ export default {
       }
     },
     allUsers(data) {
-
-      console.log('userss',data)
+      data.forEach(user => {
+        if(user.name != localStorage.playerone) {
+          this.eName = user.name
+          console.log(this.eName,'enemy name')
+        }
+      })     
     },
     enemyScore(data) {
-      //this.eScore = data
+      this.eScore = data
     },
   } 
 }

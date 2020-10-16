@@ -20,7 +20,10 @@ io.on('connection' , (socket) => {
     let name = null;
 
     socket.on('user-connect',(data) => {
-        users.push(data)
+        let index = users.indexOf(data)
+        if(index == -1) {
+            users.push(data)
+        }
         name = data
         console.log(users)
         io.emit('allUsers',users);
@@ -46,6 +49,8 @@ io.on('connection' , (socket) => {
         
         socket.broadcast.emit('enemyStatus',payload)
     })
+
+    //socket.on('disconnect')
 })
 
 
