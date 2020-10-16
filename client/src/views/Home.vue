@@ -11,6 +11,10 @@
       </div>
     </div>
     <!-- pertanyaan end -->
+    <div class="container">
+      <h1 class="text-center">TIMES: 20</h1>
+      <p class="pl-1">LIVES: 3</p>
+    </div>
     <Box
     v-for="color in colours"
     :key="color.id"

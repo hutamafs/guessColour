@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div class="container-flex p-3">
+      <div class="item-flex" style="cursor: pointer;">Logo</div>
+      <div class="item-flex" style="cursor: pointer; letter-spacing: 2px"><b>GUESS COLOR</b></div>
+      <div class="item-flex" style="cursor: pointer;">Logout</div>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
+} */
 
 #nav {
   padding: 30px;
