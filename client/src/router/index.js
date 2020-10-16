@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import GameOver from '../views/GameOver.vue'
+import Win from '../views/Win.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/game-over',
     name: 'GameOver',
     component: GameOver
+  },
+  {
+    path: '/win',
+    name: 'Win',
+    component: Win
   }
 
 ]
