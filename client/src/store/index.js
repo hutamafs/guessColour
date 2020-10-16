@@ -44,13 +44,11 @@ export default new Vuex.Store({
     RESET(state) {
       state.life = 5;
       state.skor = 0
-    } 
+    },
   },
   actions: {
     chosen({commit,state},payload) {
       commit('CHANGE_USER_ANSWER',payload)
-      console.log(state.user,'user')
-      console.log(state.kunci,'jawaban')
       if(state.kunci != state.user) {
         commit('DECREASE_LIFE')
       } else {
@@ -63,6 +61,9 @@ export default new Vuex.Store({
 
       commit('GENERATE_COLOUR')     
     },
+  },
+  sockets:{
+
   },
   modules: {
   }
