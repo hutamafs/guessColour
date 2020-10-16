@@ -9,6 +9,9 @@
           <p>CHOOSE THE RIGHT ONE</p>
           <p> {{life}} </p>
           <p> {{skor}} </p>
+
+          <h3> {{eScore}} </h3>
+          <h3> {{eLife}} </h3>
         </div>
       </div>
     </div>
@@ -16,6 +19,8 @@
     <div class="container">
       <h1 class="text-center">TIMES: 20</h1>
       <p class="pl-1">LIVES: 3</p>
+      <h2> {{time}} </h2>
+      <button @click="startGame">Start game</button>
     </div>
     <Box
     v-for="color in colours"
@@ -38,18 +43,56 @@ export default {
   },
   data () {
     return {
-
+      time:null,
+      eScore:null,
+      eLife:null,
     }
   },
   methods: {
+    decreaseTime() {
+      let x = setInterval(() => {        
+        this.time = limit - now
 
+          if (this.time < 0) {
+           clearInterval(x);
+          }
+      },1000)
+    },
+    startGame() {
+      let now = new Date()
+      let limit = now.setSeconds(now.getSeconds() + 30);
+      this.decreaseTime(limit);
+
+      setTimeout(() => {
+        clearInterval()
+      },1000)
+    },
   },
-  created () {
-    this.$store.commit('GENERATE_COLOUR')
+    created () {
+      this.$store.commit('GENERATE_COLOUR')
   },
   computed:{
     ...mapState(['colours','kunci','clue','skor','life'])
-  }
+  },
+  watch:{
+    skor() {
+      this.$socket.emit('sendScore',this.skor)
+    },
+    life() {
+      this.$socket.emit('sendLife',this.life)
+    }
+  },
+  sockets:{
+    enemyLife(data) {
+      this.eLife = data
+    },
+    allUsers(data) {
+      console.log('userss',data)
+    },
+    enemyScore(data) {
+      this.eScore = data
+    }
+  } 
 }
 </script>
 <style lang="stylus" scoped>
