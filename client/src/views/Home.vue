@@ -17,13 +17,6 @@
         <h4> {{eName}} </h4>
       </div>
     </div>
-    <!-- pertanyaan end -->
-    <div class="container">
-      <!-- <h1 class="text-center">TIMES: 20</h1> -->
-
-      <!-- <p class="pl-1">LIVES: 3</p> -->
-      <!-- <h2> {{time}} </h2> -->
-      <!-- <button class="btn btn-dark p-1 m-2" @click="startGame">Start game</button> -->
     </div>
     <div 
     v-if="eName">
