@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-flex {
+  display: flex;
+  background-color: black;
+  color: white;
+  justify-content: space-between;
+  position: static;
+  /* cursor: pointer; */
+  /* height: 5rem; */
+}
