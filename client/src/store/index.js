@@ -12,8 +12,7 @@ export default new Vuex.Store({
     skor:0,
     colours : [],
     kunci: null,
-    clue: {}
-
+    clue: {},
   },
   mutations: {
     GENERATE_COLOUR (state) {
@@ -37,14 +36,17 @@ export default new Vuex.Store({
     },
     DECREASE_LIFE(state) {
       state.life--
+      //state.status.life = state.life
     },
     CHANGE_SCORE(state,payload) {
       state.skor += payload
+      //state.status.skor = state.skor
     },
     RESET(state) {
       state.life = 5;
       state.skor = 0
     },
+
   },
   actions: {
     chosen({commit,state},payload) {
@@ -54,11 +56,9 @@ export default new Vuex.Store({
       } else {
         commit('CHANGE_SCORE',10)
       }
-      
-      if(state.life == 0) {
+      if(state.life == -1) {
         router.push({name:'GameOver'})
-      }
-
+      }    
       commit('GENERATE_COLOUR')     
     },
   },

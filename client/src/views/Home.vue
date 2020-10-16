@@ -3,7 +3,8 @@
     <!-- start pertanyaan -->
     <div class="container-fluid p-0">
       <div class="item-flex mt-5" style="cursor: pointer;">
-        <h3 class="">Your Life: {{life}}</h3>
+        <!-- <h3 class="">Your Life: {{life}}</h3> -->
+        <h3 class="">Life: {{life+1}}</h3>
         <h3>Your Skor: {{skor}}</h3>
       </div>
       <div class="item-flex text-center" style="cursor: pointer; letter-spacing: 2px">
@@ -22,11 +23,11 @@
           <p> {{life}} </p>
           <p> {{skor}} </p>
 
-          <h3> {{eScore}} </h3>
-          <h3> {{eLife}} </h3>
         </div>
       </div> -->
     </div>
+              <h3> {{eScore}} </h3>
+          <h3> {{eLife}} </h3>
     <!-- pertanyaan end -->
     <div class="container">
       <h1 class="text-center">TIMES: 20</h1>
@@ -59,6 +60,7 @@ export default {
       time:null,
       eScore:null,
       eLife:null,
+      eName:null
     }
   },
   methods: {
@@ -93,18 +95,27 @@ export default {
     },
     life() {
       this.$socket.emit('sendLife',this.life)
-    }
+    },
   },
   sockets:{
     enemyLife(data) {
+      console.log(data,'angka life')
       this.eLife = data
+      if(data == 0) {
+        //alert('you win')
+        this.$router.push({name:'Win'})
+      } else if(this.life == 0) {
+        //alert('you lose')
+        //this.$router.push({name:'GameOver'})
+      }
     },
     allUsers(data) {
+
       console.log('userss',data)
     },
     enemyScore(data) {
-      this.eScore = data
-    }
+      //this.eScore = data
+    },
   } 
 }
 </script>
